@@ -75,129 +75,129 @@ FILE *file;
 switch(userResponse){
 
     case -1:
-    	    printf("Thank you for using the program, Cheerio!\n");
-	    exit(0);
-	    break;
+            printf("Thank you for using the program, Cheerio!\n");
+        exit(0);
+        break;
     case 0:
-    	    printMenu();
-    	    break;
+            printMenu();
+            break;
     case 1:
-    	    //prints all of the generic USB information
-    	    file = getAllGenericUSBInfo();
-    	    printf("\n\n\n");
-    	    printFileInformation(file);   
-    	    printf("\n\n\n"); 
+            //prints all of the generic USB information
+            file = getAllGenericUSBInfo();
+            printf("\n\n\n");
+            printFileInformation(file);   
+            printf("\n\n\n"); 
             //return system resources
-            fclose(file);
-    	    break;
+            pclose(file);
+            break;
     case 2: 
-    	    //prints all of the verbose USB information
-    	    file = getAllVerboseUSBInfo();
-    	    printf("\n\n\n");
-    	    printFileInformation(file);
-    	    printf("\n\n\n");
-    	    //return system resources
-    	    fclose(file);
-    	    break;
-    case 3:	
-    	    //prints all of the tree-view USB information
-    	    file = getAllTreeViewGenericUSBInfo();
-    	    printf("\n\n\n");
-    	    printFileInformation(file);
-    	    printf("\n\n\n");
-    	    //return system resources
-    	    fclose(file);
-    	    break;
-    	    //must add brackets arounf case statement as a new 'type' is being created(just initializing the char pointer)
+            //prints all of the verbose USB information
+            file = getAllVerboseUSBInfo();
+            printf("\n\n\n");
+            printFileInformation(file);
+            printf("\n\n\n");
+            //return system resources
+            pclose(file);
+            break;
+    case 3: 
+            //prints all of the tree-view USB information
+            file = getAllTreeViewGenericUSBInfo();
+            printf("\n\n\n");
+            printFileInformation(file);
+            printf("\n\n\n");
+            //return system resources
+            pclose(file);
+            break;
+            //must add brackets arounf case statement as a new 'type' is being created(just initializing the char pointer)
     case 4: {
 
-    	    char *returnValue;
-    	    returnValue = getUserInputForSpecificUSB();
-    	    file = getSpecificUSBGenericInfo(returnValue);
-    	    printf("\n\n\n");
-    	    printFileInformation(file);
-    	    printf("\n\n\n");
-    	    //return system resources
-    	    free(returnValue);
-    	    fclose(file);
-    	    break;
-    	    }
-    	    
+            char *returnValue;
+            returnValue = getUserInputForSpecificUSB();
+            file = getSpecificUSBGenericInfo(returnValue);
+            printf("\n\n\n");
+            printFileInformation(file);
+            printf("\n\n\n");
+            //return system resources
+            free(returnValue);
+            pclose(file);
+            break;
+            }
+            
     case 5: {
 
-    	    char *returnValue;
-    	    returnValue = getUserInputForSpecificUSB();
-    	    file = getSpecificUSBSVerboseInfo(returnValue);
-    	    printf("\n\n\n");
-    	    printFileInformation(file);
-    	    printf("\n\n\n");
-    	    //return system resources
-    	    free(returnValue);
-    	    fclose(file);
-    	    break;
-    	    }	 
-    	    
+            char *returnValue;
+            returnValue = getUserInputForSpecificUSB();
+            file = getSpecificUSBSVerboseInfo(returnValue);
+            printf("\n\n\n");
+            printFileInformation(file);
+            printf("\n\n\n");
+            //return system resources
+            free(returnValue);
+            pclose(file);
+            break;
+            }    
+            
     case 6: {
 
-    	    char *returnValue;
-    	    returnValue = getUserInputForSpecificUSB();
-    	    file = getSpecificUSBTreeViewInfo(returnValue);
-    	    printf("\n\n\n");
-    	    printFileInformation(file);
-    	    printf("\n\n\n");
-    	    //return system resources
-    	    free(returnValue);
-    	    fclose(file);
-    	    break;
-    	    }	
-    	    
-    	    
+            char *returnValue;
+            returnValue = getUserInputForSpecificUSB();
+            file = getSpecificUSBTreeViewInfo(returnValue);
+            printf("\n\n\n");
+            printFileInformation(file);
+            printf("\n\n\n");
+            //return system resources
+            free(returnValue);
+            pclose(file);
+            break;
+            }   
+            
+            
 
     case 7: {
-    	    printf("You have chosen to search for specific device information info across all USB devices, please enter a number between -1 and 3\nto determine what kind of device information you would like to search for\n(-1): Quit\n(0): Menu\n(1): All generic USB info with searching capabilities\n(2): All verbose USB info with searching capabilities\n(3): All tree-view USB info with searching capabilities\n");
-    	    int userInput;
-    	    printf("Enter a value...");
-    	    //we must first get the input for the kind of generic information they would like to parse
-    	    scanf("%d", &userInput);
-    	    if(userInput == -1) exit(0);
-    	    if(userInput == 0) printMenu();
-    	    displayUserGenericSearchedData(userInput);
-    	    
-    	    break;
-    	    }	
-    	    
+            printf("You have chosen to search for specific device information info across all USB devices, please enter a number between -1 and 3\nto determine what kind of device information you would like to search for\n(-1): Quit\n(0): Menu\n(1): All generic USB info with searching capabilities\n(2): All verbose USB info with searching capabilities\n(3): All tree-view USB info with searching capabilities\n");
+            int userInput;
+            printf("Enter a value...");
+            //we must first get the input for the kind of generic information they would like to parse
+            scanf("%d", &userInput);
+            if(userInput == -1) exit(0);
+            if(userInput == 0) printMenu();
+            displayUserGenericSearchedData(userInput);
+            
+            break;
+            }   
+            
     case 8: {
     
             char *returnValue;
-    	    returnValue = getUserInputForSpecificUSB();	    
-    	    printf("You have chosen to search for specific USB device info, for one specidic USB, please enter a number between -1 and 3\nto determine what kind of device information you would like to search for\n(-1): Quit\n(0): Menu\n(1): Specific USB w/ generic USB info with searching capabilities\n(2): Specific USB w/ verbose USB info with searching capabilities\n(3): Specific USB w/ tree-view USB info with searching capabilities\n");
-    	    int userInput;
-    	    printf("Enter a value...");
-    	    //we must first get the input for the kind of generic information they would like to parse
-    	    scanf("%d", &userInput);
-    	    
-    	    if(userInput == -1) exit(0);
-    	    if(userInput == 0) printMenu();
-    	    displayUserSpecificSearchedData(userInput, returnValue);
-    	    
-    	    
-    	    break;
-    	    }	
-    	       
-    	    
+            returnValue = getUserInputForSpecificUSB();     
+            printf("You have chosen to search for specific USB device info, for one specidic USB, please enter a number between -1 and 3\nto determine what kind of device information you would like to search for\n(-1): Quit\n(0): Menu\n(1): Specific USB w/ generic USB info with searching capabilities\n(2): Specific USB w/ verbose USB info with searching capabilities\n(3): Specific USB w/ tree-view USB info with searching capabilities\n");
+            int userInput;
+            printf("Enter a value...");
+            //we must first get the input for the kind of generic information they would like to parse
+            scanf("%d", &userInput);
+            
+            if(userInput == -1) exit(0);
+            if(userInput == 0) printMenu();
+            displayUserSpecificSearchedData(userInput, returnValue);
+            
+            
+            break;
+            }   
+               
+            
     case 9: 
-   	    file = getUSBBussesDevices();
-   	    printf("\n\n\n");
-   	    printFileInformation(file);
-   	    printf("\n\n\n");
-   	    //return system resources
-    	    fclose(file);
-    	    break;
-    	          	       	       
-    	    
+        file = getUSBBussesDevices();
+        printf("\n\n\n");
+        printFileInformation(file);
+        printf("\n\n\n");
+        //return system resources
+            pclose(file);
+            break;
+                                   
+            
     default: 
-    	    printf("Please enter a valid number as specified in the menu, again to access the menu, enter the number 0.\n");
-    	    break;
+            printf("Please enter a valid number as specified in the menu, again to access the menu, enter the number 0.\n");
+            break;
 
 }
 
@@ -242,7 +242,7 @@ printf("\n\n\n");
 printFileInformation(searchedValues);
 printf("\n\n\n");
 //close file
-fclose(searchedValues);
+pclose(searchedValues);
 
 printf("Enter an number to choose what you would like to do next:\n(-1): Quit\n(0): Menu\n(1): Specific USB w/ generic USB info with searching capabilities\n(2): Specific USB w/ verbose USB info with searching capabilities\n(3): Specific USB w/ tree-view USB info with searching capabilities\n");
 scanf("%d", &userResponse);
@@ -289,7 +289,7 @@ FILE *searchedValues = popen(command, "r");
 printf("\n\n\n");
 printFileInformation(searchedValues);
 printf("\n\n\n");
-fclose(searchedValues);
+pclose(searchedValues);
 
 printf("Enter an number to choose what you would like to do next:\n(-1): Quit\n(0): Menu\n(1): All generic USB info with searching capabilities\n(2): All verbose USB info with searching capabilities\n(3): All tree-view USB info with searching capabilities\n\n");
 
@@ -424,3 +424,6 @@ FILE *USBDeviceInfo = popen(command,"r");
 
 return USBDeviceInfo;
 }
+
+
+
